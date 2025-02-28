@@ -1,7 +1,7 @@
 import React from 'react';
 import MuNavbar, { NavItem } from '@/components/mu-navbar';
 import MuFooter from '@/components/mu-footer';
-import logo from '@/assets/logo/muse_ai.svg'
+import logo from '@/assets/logo/muse_ai.svg';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -10,10 +10,9 @@ interface MainLayoutProps {
 
 const defaultNavItems: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Features', href: '/features' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '/about' },
 ];
 
 const MainLayout: React.FC<MainLayoutProps> = ({

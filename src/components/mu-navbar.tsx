@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';  // Import Link
 
 export interface NavItem {
   label: string;
@@ -21,6 +22,7 @@ const MuNavbar: React.FC<MuNavbarProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,25 +54,26 @@ const MuNavbar: React.FC<MuNavbarProps> = ({
               src={typeof logo === "string" ? logo : ""}
               alt="Muse Logo"
               className="h-12 w-auto md:h-16"
-            />  
+            />
           ) : (
             <span className="text-xl font-bold">Muse</span>
           )}
         </div>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {items.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
-              className="text-sm font-medium transition-colors hover:text-primary"
+              to={item.href}
+              className={cn("text-sm font-medium transition-colors hover:text-primary",
+                            location.pathname === item.href ? "text-primary" : "")}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        
+
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-2">
           <Button variant="outline" size="sm">
@@ -78,10 +81,10 @@ const MuNavbar: React.FC<MuNavbarProps> = ({
           </Button>
           <Button size="sm">Get Started</Button>
         </div>
-        
+
         {/* Mobile Hamburger Button */}
-        <button 
-          className="md:hidden p-2" 
+        <button
+          className="md:hidden p-2"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -92,7 +95,7 @@ const MuNavbar: React.FC<MuNavbarProps> = ({
           )}
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       <div className={cn(
         "md:hidden bg-muse-background border-t overflow-hidden transition-all duration-300",
@@ -100,14 +103,14 @@ const MuNavbar: React.FC<MuNavbarProps> = ({
       )}>
         <div className="container py-4 flex flex-col space-y-4">
           {items.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className="text-sm font-medium py-2 transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <div className="flex flex-col space-y-2 pt-2 border-t">
             <Button variant="outline" size="sm" className="w-full">
