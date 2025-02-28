@@ -63,7 +63,7 @@ const MuCard: React.FC<MuCardProps> = ({
   return (
     <Card 
       className={cn(
-        "overflow-hidden group",
+        "overflow-hidden group bg-muse-background",
         hoverEffect && "transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
         imagePosition === 'background' && "relative",
         imagePosition === 'left' && "grid grid-cols-3",

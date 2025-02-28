@@ -3,6 +3,8 @@ import MuHeroSection from '@/components/mu-hero-section';
 import MuCard from '@/components/mu-card';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { MuPanel, MuSection } from '@/components/mu-section';
 
 const PricingTier = ({ 
   title, 
@@ -56,8 +58,6 @@ const PricingTier = ({
   />
 );
 
-import { cn } from '@/lib/utils';
-
 const Pricing: React.FC = () => {
   return (
     <>
@@ -67,99 +67,97 @@ const Pricing: React.FC = () => {
       />
       
       {/* Pricing Tiers */}
-      <section className="w-full py-12 md:py-24 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <PricingTier
-              title="Starter"
-              price="$29"
-              description="Perfect for individuals and small projects."
-              features={[
-                "Up to 5 projects",
-                "Basic templates",
-                "3GB cloud storage",
-                "Email support",
-                "Core features"
-              ]}
-            />
-            
-            <PricingTier
-              title="Professional"
-              price="$79"
-              description="Designed for professionals and growing teams."
-              features={[
-                "Unlimited projects",
-                "Premium templates",
-                "15GB cloud storage",
-                "Priority support",
-                "Advanced features",
-                "Team collaboration",
-                "Analytics dashboard"
-              ]}
-              highlighted={true}
-              buttonText="Try for Free"
-            />
-            
-            <PricingTier
-              title="Enterprise"
-              price="Custom"
-              description="Tailored solutions for large organizations."
-              features={[
-                "Unlimited everything",
-                "Dedicated account manager",
-                "Custom integrations",
-                "Advanced security",
-                "24/7 premium support",
-                "On-premises option",
-                "Training and onboarding"
-              ]}
-              buttonText="Contact Sales"
-            />
-          </div>
+      <MuSection paddingY="xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <PricingTier
+            title="Starter"
+            price="$29"
+            description="Perfect for individuals and small projects."
+            features={[
+              "Up to 5 projects",
+              "Basic templates",
+              "3GB cloud storage",
+              "Email support",
+              "Core features"
+            ]}
+          />
           
-          <div className="mt-20">
-            <MuCard
-              className="max-w-3xl mx-auto"
-              title="Frequently Asked Questions"
-              content={
-                <div className="space-y-6 mt-6">
-                  <div className="space-y-2">
-                    <h3 className="font-medium">Can I switch between plans?</h3>
-                    <p className="text-muted-foreground">Yes, you can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.</p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="font-medium">Is there a free trial?</h3>
-                    <p className="text-muted-foreground">We offer a 14-day free trial on our Professional plan, no credit card required.</p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="font-medium">What payment methods do you accept?</h3>
-                    <p className="text-muted-foreground">We accept all major credit cards, PayPal, and offer invoice payment for annual Enterprise plans.</p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="font-medium">Can I get a refund?</h3>
-                    <p className="text-muted-foreground">We offer a 30-day money-back guarantee if you're not satisfied with our service.</p>
-                  </div>
-                </div>
-              }
-            />
-          </div>
+          <PricingTier
+            title="Professional"
+            price="$79"
+            description="Designed for professionals and growing teams."
+            features={[
+              "Unlimited projects",
+              "Premium templates",
+              "15GB cloud storage",
+              "Priority support",
+              "Advanced features",
+              "Team collaboration",
+              "Analytics dashboard"
+            ]}
+            highlighted={true}
+            buttonText="Try for Free"
+          />
+          
+          <PricingTier
+            title="Enterprise"
+            price="Custom"
+            description="Tailored solutions for large organizations."
+            features={[
+              "Unlimited everything",
+              "Dedicated account manager",
+              "Custom integrations",
+              "Advanced security",
+              "24/7 premium support",
+              "On-premises option",
+              "Training and onboarding"
+            ]}
+            buttonText="Contact Sales"
+          />
         </div>
-      </section>
+        
+        <div className="mt-20">
+          <MuCard
+            className="max-w-3xl mx-auto"
+            title="Frequently Asked Questions"
+            content={
+              <div className="space-y-6 mt-6">
+                <div className="space-y-2">
+                  <h3 className="font-medium">Can I switch between plans?</h3>
+                  <p className="text-muted-foreground">Yes, you can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.</p>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="font-medium">Is there a free trial?</h3>
+                  <p className="text-muted-foreground">We offer a 14-day free trial on our Professional plan, no credit card required.</p>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="font-medium">What payment methods do you accept?</h3>
+                  <p className="text-muted-foreground">We accept all major credit cards, PayPal, and offer invoice payment for annual Enterprise plans.</p>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="font-medium">Can I get a refund?</h3>
+                  <p className="text-muted-foreground">We offer a 30-day money-back guarantee if you're not satisfied with our service.</p>
+                </div>
+              </div>
+            }
+          />
+        </div>
+      </MuSection>
       
       {/* Compare Plans */}
-      <section className="w-full py-12 md:py-24 bg-muse-background">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Compare Plans</h2>
-            <p className="max-w-[700px] text-muted-foreground">
-              See which plan is right for your needs
-            </p>
-          </div>
-          
-          <div className="overflow-x-auto">
+      <MuSection paddingY="xl" className="bg-muse-logo/10">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Compare Plans</h2>
+          <p className="max-w-[700px] text-muted-foreground">
+            See which plan is right for your needs
+          </p>
+        </div>
+        
+        <div className="overflow-x-auto">
+          <MuPanel className="p-0">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
@@ -220,25 +218,23 @@ const Pricing: React.FC = () => {
                 </tr>
               </tbody>
             </table>
-          </div>
+          </MuPanel>
         </div>
-      </section>
+      </MuSection>
       
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center space-y-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
-            <p className="text-muted-foreground">
-              Join thousands of creators who are already using Muse to bring their ideas to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <Button size="lg">Start Free Trial</Button>
-              <Button size="lg" variant="outline">View Demo</Button>
-            </div>
+      <MuSection paddingY="xl">
+        <div className="flex flex-col items-center text-center space-y-4 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
+          <p className="text-muted-foreground">
+            Join thousands of creators who are already using Muse to bring their ideas to life.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <Button size="lg">Start Free Trial</Button>
+            <Button size="lg" variant="outline">View Demo</Button>
           </div>
         </div>
-      </section>
+      </MuSection>
     </>
   );
 };
